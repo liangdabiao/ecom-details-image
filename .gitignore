@@ -4,7 +4,7 @@
 !.env.example
 
 # Generated images (too large for repo)
-generated-images/
+generated-images0/
 
 # Python
 __pycache__/
