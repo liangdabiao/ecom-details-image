@@ -39,7 +39,7 @@
 
 ```bash
 git clone https://github.com/liangdabiao/ecom-details-image.git
-cd 1click-ecom-detailpage
+cd ecom-details-image
 ```
 
 ### 2. 配置 API
