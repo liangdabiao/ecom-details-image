@@ -239,11 +239,12 @@ def http_get(url: str, api_key: str, timeout: int = 30) -> dict[str, Any]:
 # ── 同步模式（OpenAI 兼容）──────────────────────────────────
 
 def build_sync_payload(args: argparse.Namespace, prompt: str, model: str) -> dict[str, Any]:
-    payload: dict[str, Any] = {"model": model, "prompt": prompt, "n": args.n, "size": args.size}
-    if args.quality:
-        payload["quality"] = args.quality
+    size_val = size_to_ratio(args.size) if ":" in args.size else args.size
+    payload: dict[str, Any] = {"model": model, "prompt": prompt, "n": args.n, "size": size_val}
+    if args.resolution:
+        payload["resolution"] = args.resolution
     if args.image:
-        payload["image"] = encode_image_object(args.image)
+        payload["image_urls"] = [encode_image_data_uri(args.image)]
     return payload
 
 
