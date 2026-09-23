@@ -11,6 +11,8 @@
 
 未配置 API 时，它仍然可以正常输出 Prompt；配置 API 后，可以直接出图。
 
+如果需要web ui : https://github.com/liangdabiao/ecom-details-image-ui
+
 ## 功能特性
 
 - **一站式电商图片生成** — 商品主图、Amazon/Shopify 详情页、社媒推广、直播间场景等
