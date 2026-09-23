@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Quality assurance section on #F8F7F5 background. Top headline in #2D2D2D reading 「Quality You Can Trust」 at 28pt. Four clean icon badges arranged horizontally, each with thin-line #C4A265 gold icon and #2D2D2D label: 「Machine Washable」 with washer icon, 「Color Fast」 with droplet icon, 「Pre-Shrunk」 with shrink-resist icon, 「Durable Stitching」 with needle icon. Below badges: flat-lay shirt section showing neat collar stitching and buttonhole detail close-up. Product detail occupies 35%. Whitespace 50%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements, gradient backgrounds, fabricated certifications or test data.

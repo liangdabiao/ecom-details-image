@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Amazon A+ Content 2x2 feature grid on #FFFFFF background. Top headline in #2D2D2D reading 「Why Choose Silk Blend」 at 28pt. Clean 2x2 grid layout, each quadrant with product detail photo and labeled feature with thin-line #C4A265 icon: (1) 「Silk Breathability」 - fabric close-up showing airflow, (2) 「Wrinkle Resistant」 - smooth pressed shirt surface, (3) 「Tailored Fit」 - shirt silhouette on mannequin, (4) 「Easy Machine Wash」 - care label detail. Each section has thin #C4A265 accent divider. Product images occupy 20% each. Whitespace 45%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements.

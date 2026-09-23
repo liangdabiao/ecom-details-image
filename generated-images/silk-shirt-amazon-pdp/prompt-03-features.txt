@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Consistent rounded rectangular info labels. Thin-line icons. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Amazon product feature infographic. Men's silk blend short-sleeve dress shirt on #FFFFFF background, slightly angled 3/4 view on the left occupying 30% of frame. Right side shows 4 feature callout labels with thin-line icons in #C4A265: 「Breathable Silk」 with airflow icon, 「Soft Touch」 with hand-feel icon, 「Easy Care」 with washing icon, 「Versatile Style」 with hanger icon. Each label in clean rounded rectangular badge with #C4A265 accent border and #2D2D2D text. Whitespace at least 45%.
-
-Do not add: props, hands, watermarks, fake logos, decorative elements, gradient backgrounds, dense body text.

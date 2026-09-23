@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Occasion lifestyle grid on #F8F7F5 background. Top label in #2D2D2D reading 「One Shirt, Every Occasion」 at 28pt. Three horizontal scene strips with thin #C4A265 separator lines: (1) Modern bright office with wooden desk and laptop - smart professional pairing, (2) Relaxed weekend café setting with warm wood tones and coffee cup - casual untucked look, (3) Evening rooftop dinner scene with soft warm lighting - elevated casual style. Shirt visible as focal point in each scene. Soft warm lighting at 5500K throughout. Whitespace 50%+.
-
-Do not add: watermarks, fake logos, extra text, visible face details, cluttered scenes, multiple people.

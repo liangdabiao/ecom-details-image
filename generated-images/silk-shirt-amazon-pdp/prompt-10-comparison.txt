@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Comparison infographic on #FFFFFF background. Top headline in #2D2D2D reading 「Silk Blend vs Regular」 at 28pt. Split layout: left side label 「Regular Cotton」 in #B0B0B0 gray with flat generic fabric texture swatch; right side label 「Silk Blend」 in #C4A265 gold with lustrous fabric swatch showing visible silk sheen. Center vertical #C4A265 gold divider line. Below: 3 comparison rows with checkmark (#C4A265) and cross (#B0B0B0) icons: 「Breathability」 「Softness」 「Wrinkle Resistance」. Clean modern grid layout. Whitespace 50%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements, gradient backgrounds.

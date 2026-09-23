@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Material story infographic on #F8F7F5 background. Top headline in #2D2D2D reading 「Mulberry Silk Blend」 at 32pt. Center: macro photography of silk fabric weave texture with visible thread pattern and natural luster, filling 40% of frame. Below: 3 thin-line icons in #C4A265 gold with short #2D2D2D labels - 「Natural Silk Fibers」 with leaf icon, 「Breathable Weave」 with wind icon, 「Soft Finish」 with touch icon. Warm directional side lighting emphasizing fabric sheen. Whitespace 50%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements, gradient backgrounds.

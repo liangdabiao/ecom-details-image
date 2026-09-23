@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Final CTA screen on #F8F7F5 warm off-white background. Center: men's silk blend short-sleeve dress shirt on invisible mannequin, beautifully displayed with soft warm ambient glow. Below product: clean headline in #2D2D2D reading 「Upgrade Your Wardrobe」 at 36pt. A single rounded rectangular button in solid #C4A265 gold color with #FFFFFF white text reading 「Shop Now」 at 20pt. Subtle warm directional lighting creating gentle highlight on fabric. Product occupies 45% of frame. Whitespace 50%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements, gradient backgrounds.

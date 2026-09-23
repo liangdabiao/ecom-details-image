@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Size specification guide on #F8F7F5 background. Top headline in #2D2D2D reading 「Find Your Perfect Fit」 at 32pt. Center: clean shirt flat-lay outline with thin #C4A265 dimension callout lines showing collar width, chest circumference, shoulder width, and sleeve length. Below: simple clean size table with S / M / L / XL / XXL rows, grid with #C4A265 gold header row and #2D2D2D data text. Product outline occupies 40% of frame. Whitespace 50%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements.

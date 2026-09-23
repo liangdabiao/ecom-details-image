@@ -1,5 +1,0 @@
-Consistent premium men's fashion ecommerce visual system. Fixed palette: clean off-white background #F8F7F5, pure white #FFFFFF, deep charcoal text #2D2D2D, warm gold accent #C4A265, soft gray secondary #B0B0B0. Warm-neutral studio lighting at 5500K. Modern geometric sans-serif headline placeholders only. Generous whitespace. Stable product scale. No color palette changes, no mixed fonts, no random backgrounds, no inconsistent lighting.
-
-Amazon A+ Content first screen banner. Top section: men's silk blend short-sleeve dress shirt on invisible mannequin against #F8F7F5 warm off-white background, centered, front view. Below product: clean headline placeholder in #2D2D2D reading 「Premium Silk Comfort」 at 36pt. Subtitle in #B0B0B0 soft gray reading 「Mulberry Silk Blend for All-Day Ease」 at 18pt. Thin #C4A265 gold accent line between headline and subtitle. Product occupies 50% of upper section. Whitespace 50%+.
-
-Do not add: props, hands, watermarks, fake logos, dense body text, decorative elements.
