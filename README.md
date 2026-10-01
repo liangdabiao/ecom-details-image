@@ -83,13 +83,13 @@ apiz account balance  # 查看积分余额
 可选配置（在 Skill 目录放 `.env`，全部可省略）：
 
 ```dotenv
-APIZ_IMAGE_MODEL=openai/gpt-image-2
+APIZ_IMAGE_MODEL=apiz/gpt-image-2.5-flare
 # APIZ_API_KEY=sk-xxx     # 仅未使用 apiz auth login 时需要
 # APIZ_BASE_URL=https://api.apiz.ai
 # APIZ_BIN=C:\path\to\apiz.exe
 ```
 
-- `APIZ_IMAGE_MODEL`：图片模型 id，默认 `openai/gpt-image-2`；`apiz models list` 可查看全部图片模型（如 `fal-ai/nano-banana-pro`、`apiz/gpt-image-2.5-sunburst`）。兼容旧别名 `IMG_MODEL`、`OPENAI_IMAGE_MODEL`、`OPENAI_MODEL`。
+- `APIZ_IMAGE_MODEL`：图片模型 id，默认 `apiz/gpt-image-2.5-flare`；`apiz models list` 可查看全部图片模型（如 `openai/gpt-image-2`、`fal-ai/nano-banana-pro`、`apiz/gpt-image-2.5-sunburst`）。兼容旧别名 `IMG_MODEL`、`OPENAI_IMAGE_MODEL`、`OPENAI_MODEL`。
 - `APIZ_API_KEY`：未登录时使用。兼容旧别名 `IMG_API_KEY`、`OPENAI_API_KEY`。
 - `APIZ_BIN`：apiz 不在 PATH 时指定可执行文件路径。
 
@@ -134,7 +134,7 @@ python3 scripts/generate_image.py \
   --prompt-file prompt.txt \
   --output-dir generated-images \
   --size 4:5 \
-  --model openai/gpt-image-2 \
+  --model apiz/gpt-image-2.5-flare \
   --image data/product.jpg \
   --timeout 420
 ```
@@ -152,7 +152,7 @@ python3 scripts/generate_image.py --env-file .env --prompt-file prompt.txt
 - `--output-dir`：输出目录，默认 `generated-images/`。
 - `--env-file`：指定 `.env` 配置文件；不指定时从当前目录向上查找（可选）。
 - `--size`：图片比例，默认 `1:1`，如 `16:9`、`9:16`、`2:3`、`4:5`；也兼容 `1024x1024` 这类像素写法（自动换算成比例）。
-- `--model`：apiz 图片模型 id，默认 `openai/gpt-image-2`（可用 `APIZ_IMAGE_MODEL` 覆盖）。
+- `--model`：apiz 图片模型 id，默认 `apiz/gpt-image-2.5-flare`（可用 `APIZ_IMAGE_MODEL` 覆盖）。
 - `--image`：本地参考产品图片路径，传入后自动上传并走图生图模式，提升产品一致性。
 - `--image-url`：参考图公网 URL（与 `--image` 二选一，URL 优先）。
 - `--timeout`：单个生成任务等待上限秒数，默认 `420`。
@@ -169,7 +169,7 @@ python3 scripts/generate_image.py --env-file .env --prompt-file prompt.txt
 | `9:16` | 短视频封面、Story |
 | `3:2` / `4:3` | 场景图、 lifestyle 图 |
 
-实际输出像素由所选模型决定（如 `openai/gpt-image-2` 最高支持 4K）。
+实际输出像素由所选模型决定（默认 `apiz/gpt-image-2.5-flare` 支持 1K/2K/4K 三档，最高 4K）。
 
 脚本只使用 Python 标准库，不需要安装第三方依赖。
 
@@ -272,7 +272,7 @@ Campaign Style Lock: consistent premium ecommerce visual system across the entir
 ## 局限性
 
 - apiz 生成为异步任务，单张图通常 30–90 秒完成；脚本通过 `--wait` 阻塞等待后自动下载。
-- 实际输出像素由所选模型决定；`openai/gpt-image-2` 最高支持 4K。
+- 实际输出像素由所选模型决定；默认 `apiz/gpt-image-2.5-flare` 支持 1K/2K/4K 三档。
 - 单个任务每次返回 1 张图；参考图走 `--image` / `--image-url` 单张传入。
 - 生图质量、速度和积分消耗取决于所选模型。
 - 结果 URL 有时效，脚本会自动下载到本地。

@@ -11,7 +11,7 @@ apiz CLI，认证由 CLI 自行处理（`apiz auth login` 或 APIZ_API_KEY 环�
   3. 解析任务 JSON，下载 result.images[].url 到输出目录
 
 配置（均可省略）：
-- APIZ_IMAGE_MODEL: 图片模型，默认 openai/gpt-image-2（兼容 IMG_MODEL、OPENAI_IMAGE_MODEL）
+- APIZ_IMAGE_MODEL: 图片模型，默认 apiz/gpt-image-2.5-flare（兼容 IMG_MODEL、OPENAI_IMAGE_MODEL）
 - APIZ_API_KEY: 可选，apiz CLI 的 key；已 `apiz auth login` 时无需设置（兼容 IMG_API_KEY）
 - APIZ_BASE_URL: 可选，CLI 后端地址（兼容 IMG_BASE_URL）
 - APIZ_BIN: 可选，apiz 可执行文件路径，默认从 PATH 查找
@@ -31,7 +31,7 @@ import urllib.parse
 import urllib.request
 from pathlib import Path
 
-DEFAULT_MODEL = "openai/gpt-image-2"
+DEFAULT_MODEL = "apiz/gpt-image-2.5-flare"
 PIXEL_TO_RATIO: dict[str, str] = {
     "1024x1024": "1:1", "2048x2048": "1:1",
     "1536x1024": "3:2", "2048x1360": "3:2",

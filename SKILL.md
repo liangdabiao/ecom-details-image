@@ -44,13 +44,13 @@ claude code / OpenClaw 等其他环境使用 `scripts/generate_image.py`，脚�
 可选配置（通过 `.env` 或环境变量，全部可省略）：
 
 ```dotenv
-APIZ_IMAGE_MODEL=openai/gpt-image-2
+APIZ_IMAGE_MODEL=apiz/gpt-image-2.5-flare
 # APIZ_API_KEY=sk-xxx        # 仅未使用 apiz auth login 时需要
 # APIZ_BASE_URL=https://api.apiz.ai
 # APIZ_BIN=C:\path\to\apiz.exe
 ```
 
-- `APIZ_IMAGE_MODEL`：apiz 图片模型 id，默认 `openai/gpt-image-2`。兼容旧别名 `IMG_MODEL`、`OPENAI_IMAGE_MODEL`、`OPENAI_MODEL`。
+- `APIZ_IMAGE_MODEL`：apiz 图片模型 id，默认 `apiz/gpt-image-2.5-flare`（GPT Image 2.5，支持参考图编辑、10 种比例、1K/2K/4K）。兼容旧别名 `IMG_MODEL`、`OPENAI_IMAGE_MODEL`、`OPENAI_MODEL`。
 - 其他可用模型用 `apiz models list` 查看（category=image），如 `fal-ai/nano-banana-pro`、`apiz/gpt-image-2.5-sunburst`。
 - 旧变量 `IMG_API_KEY`、`IMG_BASE_URL` 仍被兼容读取。
 
@@ -569,7 +569,7 @@ python3 scripts/generate_image.py --prompt "..." --size 1:1
 - `--prompt` / `--prompt-file`
 - `--output-dir`
 - `--size`：比例格式（`1:1`、`16:9`、`2:3`、`4:5` 等，兼容 `1024x1024` 像素写法）
-- `--model`：apiz 图片模型 id，默认 `openai/gpt-image-2`
+- `--model`：apiz 图片模型 id，默认 `apiz/gpt-image-2.5-flare`
 - `--image`：本地参考产品图片路径（自动上传 apiz CDN）；`--image-url`：参考图公网 URL
 - `--timeout`：单任务等待上限秒数，默认 `420`
 - `--format`：保存格式的默认扩展名，默认 `png`
