@@ -1,25 +1,8 @@
-# Environment and secrets
 .env
 .env.*
 !.env.example
 
-# Generated images (too large for repo)
-generated-images0/
-
-# Python
 __pycache__/
 *.pyc
 
-# OS
-.DS_Store
-Thumbs.db
-desktop.ini
-
-# IDE
-.vscode/
-.idea/
-
-# Claude Code local config
-.claude/settings.local.json
-.claude/projects/
-
+generated-images/
