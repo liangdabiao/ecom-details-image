@@ -1,6 +1,6 @@
 ---
 name: ecom-details-image
-description: Create visual concepts, image-generation prompts, and optional AI-generated images for product hero images, marketing creatives, social posts, ads, ecommerce PDP visuals, and general visual design tasks. Use when the user asks for visual strategy, image prompt writing, product/marketing image direction, or direct text-to-image generation with their own OpenAI-compatible API.
+description: Create visual concepts, image-generation prompts, and optional AI-generated images for product hero images, marketing creatives, social posts, ads, ecommerce PDP visuals, and general visual design tasks. Use when the user asks for visual strategy, image prompt writing, product/marketing image direction, or direct text-to-image generation. In Codex environments use the built-in imagegen tool; elsewhere use the bundled script backed by the apiz CLI.
 ---
 
 # ecom-details-image Skill
@@ -10,35 +10,63 @@ description: Create visual concepts, image-generation prompts, and optional AI-g
 这个 Skill 有两种模式：
 
 1. **Brief / Prompt 模式**：只输出视觉简报和可执行图片 Prompt。
-2. **Generate 模式**：当用户明确要求“生图、生成图片、出图、render image”时，先输出最终 Prompt，再调用 `scripts/generate_image.py`。
+2. **Generate 模式**：当用户明确要求“生图、生成图片、出图、render image”时，先输出最终 Prompt，再按下方**生图通道判断**选择生成方式。
 
 不要暴露、索要、写入、提交或回显真实 API key。使用者必须通过自己的环境变量配置 API。
 
 ---
 
-## 生图配置
+## 生图通道判断（Generate 模式必读）
 
-直接生图使用 apimart.ai 图像生成接口（GPT-Image-2，异步轮询模式）。优先在 `.claude/skills/ecom-details-image/` 放 `.env`，不要把真实 API key 写进仓库：
+直接生图前必须先判断当前运行环境，选择对应通道：
+
+### 通道 A：Codex 环境 → agent 内置 imagegen
+
+**判断方法**：检查你自己（agent）当前会话中是否具备内置的 `imagegen` 工具。有，说明你在 Codex 环境。
+
+执行方式：
+
+1. 不要调用 `scripts/generate_image.py`，直接调用内置 `imagegen` 工具。
+2. 把最终 Prompt（含 Campaign Style Lock）作为 `prompt` 传入；工具如支持比例/尺寸参数，传入对应比例。
+3. 如果用户提供了参考产品图，按 imagegen 工具的参考图/编辑参数传入。
+4. 把返回的图片文件记录为 Generated Files；建议将文件移动或复制到 `generated-images/<产品slug>/` 目录，与本 Skill 的输出习惯保持一致。
+5. imagegen 不可用或调用失败时，回退到通道 B。
+
+### 通道 B：非 Codex 环境 → apiz CLI 脚本
+
+claude code / OpenClaw 等其他环境使用 `scripts/generate_image.py`，脚本内部调用 **apiz CLI**（https://apiz.ai）提交生成任务并下载结果，不再直连任何 HTTP API。
+
+前置条件（本机通常已就绪）：
+
+1. 已安装 apiz CLI（`apiz --version` 可执行）。
+2. 已登录：`apiz auth login` 保存过 API key，或设置了 `APIZ_API_KEY` 环境变量。认证完全由 CLI 处理，脚本不接触密钥。
+
+可选配置（通过 `.env` 或环境变量，全部可省略）：
 
 ```dotenv
-IMG_BASE_URL=https://api.apimart.ai/v1
-IMG_MODEL=gpt-image-2
-IMG_API_KEY=your-api-key
+APIZ_IMAGE_MODEL=openai/gpt-image-2
+# APIZ_API_KEY=sk-xxx        # 仅未使用 apiz auth login 时需要
+# APIZ_BASE_URL=https://api.apiz.ai
+# APIZ_BIN=C:\path\to\apiz.exe
 ```
 
-脚本也兼容常见别名：`OPENAI_BASE_URL`、`OPENAI_API_BASE`、`OPENAI_IMAGE_MODEL`、`OPENAI_MODEL`、`OPENAI_API_KEY`。
+- `APIZ_IMAGE_MODEL`：apiz 图片模型 id，默认 `openai/gpt-image-2`。兼容旧别名 `IMG_MODEL`、`OPENAI_IMAGE_MODEL`、`OPENAI_MODEL`。
+- 其他可用模型用 `apiz models list` 查看（category=image），如 `fal-ai/nano-banana-pro`、`apiz/gpt-image-2.5-sunburst`。
+- 旧变量 `IMG_API_KEY`、`IMG_BASE_URL` 仍被兼容读取。
 
 生图脚本：
 
 ```bash
-python3 scripts/generate_image.py --prompt "clean product hero image..." --size 1:1 --resolution 2k
+python3 scripts/generate_image.py --prompt "clean product hero image..." --size 1:1
 python3 scripts/generate_image.py --prompt-file prompt.txt --output-dir outputs
 python3 scripts/generate_image.py --env-file .env --prompt-file prompt.txt
 ```
 
-**参考图片**：如果用户提供了产品照片路径，使用 `--image` 参数传入以提升产品一致性。参考图对保证产品外观准确非常有效。
+**参考图片**：如果用户提供了本地产品照片路径，使用 `--image` 参数传入；脚本会先 `apiz upload` 上传到 apiz CDN 换取公网 URL，再走图生图，这对保证产品外观准确非常有效。已有公网 URL 时用 `--image-url` 直接传入。
 
-如果缺少任何生图配置，说明需要在 `.env` 里配置什么，并把最终 Prompt 交给用户，方便用户稍后自行运行。
+**注意**：生图会消耗 apiz 账户积分（`apiz account balance` 查看）。批量出图前先把 Image Pack Plan 报给用户确认。
+
+如果 apiz CLI 未安装或未登录，不要阻塞：返回完整 Prompt 包，并给出安装/登录指引（`apiz auth login`），方便用户稍后自行运行。
 
 ---
 
@@ -52,7 +80,7 @@ python3 scripts/generate_image.py --env-file .env --prompt-file prompt.txt
 6. 写出可执行图片 Prompt（**保持简洁**，见下方 Prompt 精简原则）；多图任务必须把同一段 Campaign Style Lock 原样放进每张 Prompt。
 7. 如果任务是商品图、详情页图或营销图，先做转化驱动力诊断。
 8. 如果用户要求电商详情页、PDP、主图堆栈或整套商品图，默认输出 **5 张主图 + 7-9 张详情页图片** 的图片包。
-9. 如果用户要求直接出图，调用 `scripts/generate_image.py`；如果用户提供了参考产品图，传入 `--image`。
+9. 如果用户要求直接出图，按**生图通道判断**执行：Codex 环境用内置 imagegen；其他环境调用 `scripts/generate_image.py`（apiz CLI）。用户提供了参考产品图时，Codex 传给 imagegen，脚本通道传 `--image`。
 10. 返回 Prompt、生成文件路径和关键假设。
 
 ---
@@ -154,7 +182,7 @@ Prompt 要足够具体，可以直接执行；也不要过度规定无关细节�
 
 ### 7. 批量出图优于反复调参
 
-一次 `--resolution 2k` 出图，让 CTR 数据选风格，不要凭审美反复调参。
+一次批量出图，让 CTR 数据选风格，不要凭审美反复调参。
 
 ---
 
@@ -508,12 +536,12 @@ Clean two-column layout. Product occupies 35%. Whitespace 48%+.
 
 1. 先建立 Campaign Style Lock，并写入图片包计划。
 2. 再为每张图建立编号、用途、画幅、图片内短文案和独立 Prompt。
-3. 主图默认 `1:1`（2K）；详情页图片默认 `2:3`（2K）。
+3. 主图默认 `1:1`；详情页图片默认 `2:3`，适合移动端纵向浏览。
 4. 每张图使用独立 Prompt 文件，避免一次 Prompt 生成多屏拼图。
 5. 每张独立 Prompt 必须以同一段 Campaign Style Lock 开头。
 6. 输出目录用产品英文 slug，例如 `generated-images/laundry-detergent-pods-pdp/`。
-7. 如果 API 或模型不支持某个尺寸，改用最接近的支持尺寸，并在结果中说明。
-8. 如果缺少 `.env` 或生图配置，只输出完整 Prompt 包，不调用脚本。
+7. 如果模型不支持某个比例，改用最接近的支持比例，并在结果中说明。
+8. 如果 apiz CLI 不可用（未安装/未登录）且不在 Codex 环境，只输出完整 Prompt 包，不调用脚本。
 9. 不要虚构认证、实验数据、评分、销量、真实评价或品牌授权。
 
 ---
@@ -523,29 +551,28 @@ Clean two-column layout. Product occupies 35%. Whitespace 48%+.
 当用户要求生成图片：
 
 1. 先输出最终 Prompt。
-2. 短 Prompt 用 `--prompt`，长 Prompt 用 `--prompt-file`。
-3. 根据平台选择 `--size`（比例格式），没有要求时默认 `1:1`。
-4. `--resolution` 默认 `2k`，4K 仅限 6 个宽幅比例。
+2. 按**生图通道判断**选择通道：Codex 环境直接调用内置 imagegen；其他环境运行 `scripts/generate_image.py`（内部走 apiz CLI）。
+3. 短 Prompt 用 `--prompt`，长 Prompt 用 `--prompt-file`。
+4. 根据平台选择 `--size`（比例格式），没有要求时默认 `1:1`。
 5. 只有用户指定目录时才使用 `--output-dir`，否则使用 `generated-images/`。
-6. 如果缺少 `IMG_API_KEY` 等配置，不要调用脚本；返回 Prompt 和配置命令示例。
+6. 如果 apiz CLI 未安装或未登录，不要调用脚本；返回 Prompt 和 `apiz auth login` 指引。
+7. 批量出图前先报 Image Pack Plan 和预计积分消耗，经用户确认再执行。
 
-命令形状：
+命令形状（非 Codex 环境）：
 
 ```bash
-python3 scripts/generate_image.py --prompt "..." --size 1:1 --resolution 2k
+python3 scripts/generate_image.py --prompt "..." --size 1:1
 ```
 
 脚本支持：
 
-- `--prompt`
-- `--prompt-file`
+- `--prompt` / `--prompt-file`
 - `--output-dir`
-- `--size`：比例格式（`1:1`、`16:9`、`2:3`、`4:5` 等 14 种）
-- `--resolution`：`1k` / `2k` / `4k`，默认 `2k`
-- `--image`：参考产品图片路径
-- `--poll-interval`：轮询间隔秒数，默认 `5`
-- `--timeout`：轮询超时秒数，默认 `180`
-- `--format`：保存格式（仅影响扩展名），默认 `png`
+- `--size`：比例格式（`1:1`、`16:9`、`2:3`、`4:5` 等，兼容 `1024x1024` 像素写法）
+- `--model`：apiz 图片模型 id，默认 `openai/gpt-image-2`
+- `--image`：本地参考产品图片路径（自动上传 apiz CDN）；`--image-url`：参考图公网 URL
+- `--timeout`：单任务等待上限秒数，默认 `420`
+- `--format`：保存格式的默认扩展名，默认 `png`
 
 ---
 
@@ -561,7 +588,8 @@ python3 scripts/generate_image.py --prompt "..." --size 1:1 --resolution 2k
 - 证据缺失时不虚构效果、认证或数据。
 - 图片内文字短且必要。
 - UGC / 直播 / 社媒场景已应用 anti-AI 技巧（模板中的 `anti_ai_tips` 字段）。
-- 如有用户参考图片，已传入 `--image` 参数。
+- 已按**生图通道判断**选择通道：Codex 环境用内置 imagegen，其他环境用 `scripts/generate_image.py`（apiz CLI）。
+- 如有用户参考图片，Codex 通道已传给 imagegen，脚本通道已传入 `--image` / `--image-url` 参数。
 - 负面约束覆盖常见失败点。
 - 输出和文件里没有 API key 或私密凭据。
 - 已应用 GPT-Image-2 铁律：hex 颜色、数字占比、显式留白、否定清单、平台预留空间。
