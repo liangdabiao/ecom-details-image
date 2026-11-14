@@ -16,6 +16,8 @@
 ### 兄弟项目 - 跨境电商调研skill:
 https://github.com/liangdabiao/Amazon-Skills-Liang
 
+https://github.com/liangdabiao/ecom-details-image-ui
+
 ## 实战案例：陶瓷手冲滤杯整套 PDP（即梦 Seedream 5.5 实测）
 
 2026-11-14 用本 Skill + 即梦 `dreamina-canvas` CLI + Seedream 5.5，从一张参考图出发生成的完整电商图片包（5 主图 + 8 详情图），Prompt 全部保留在 [`prompts/pour-over-dripper/`](prompts/pour-over-dripper/)，统一 Campaign Style Lock（暖米白 `#F7F4EF` + 深炭 `#2D2D2D` + 木色 `#B08350` + 灰绿 `#8A9B8E`）。
