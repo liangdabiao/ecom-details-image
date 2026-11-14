@@ -1,0 +1,9 @@
+Campaign Style Lock: consistent premium coffee-ware ecommerce visual system; warm off-white palette #F7F4EF, deep charcoal #2D2D2D, wood accent #B08350, sage accent #8A9B8E; neutral-warm studio lighting; stable product scale; generous whitespace.
+
+E-commerce livestream scene, 9:16 vertical. A smiling young host in a warm studio holding the same white ceramic dripper with oak collar from the reference image toward camera, ring light glow, a small sale table with coffee props and a price card behind, product occupies 25%, energetic but premium mood. Photorealistic.
+
+Text overlay requirements (render Chinese characters precisely, standard simplified glyphs, clean modern sans-serif, no decorative distortion, no invented characters):
+- Small pill badge at top center reading 「直播间专享」at 14pt.
+- Main headline below it reading 「直播间专享」at 28pt in #2D2D2D. The headline contains exactly five characters: 直 播 间 专 享. The fourth character must be the standard simplified character 专 (as in 专场、专属), rendered with its correct strokes.
+
+No other text anywhere, no watermark, no English words.
