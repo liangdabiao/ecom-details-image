@@ -434,3 +434,9 @@ Campaign Style Lock: consistent premium ecommerce visual system across the entir
 2. 人工确认画面目标、主体、平台尺寸和禁用内容。
 3. Codex 环境直接用内置 imagegen 出图；其他环境 `apiz auth login` 后生成图片。
 4. 对商品或广告图保留 2–3 个创意变体做 A/B 测试。
+
+## 特别致谢
+
+https://linux.do 社区支持
+
+http://r36s.liangdabiao.com/  掌机AI开发
